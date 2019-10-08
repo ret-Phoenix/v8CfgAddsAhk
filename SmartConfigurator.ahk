@@ -73,7 +73,11 @@ $!sc33::Send <
 $!sc34::Send >
 
 ; Ctrl + D - Копирование текущей строки/ выделенного блока и вставка ниже
-^sc20:: SendInput, {CTRLDOWN}{INS}{CTRLUP}{Right}{HOME}{HOME}{SHIFTDOWN}{INS}{SHIFTUP}
+^sc20::
+	ClipSaved := Clipboard
+	SendInput, {CTRLDOWN}{INS}{CTRLUP}{Right}{HOME}{HOME}{SHIFTDOWN}{INS}{SHIFTUP}
+	Clipboard := ClipSaved	
+Return
 
 ; ----------------------------------------
 ; авторские комментарии
